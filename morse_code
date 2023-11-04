@@ -1,0 +1,54 @@
+from colorama import init
+init()
+from colorama import Fore
+MorseCode = {"а": "·−", "б": "−···", "в": "·−−", "г": "−−·", "д": "−··", "е": "·", "ж": "···−",
+             "з": "−−··", "и": "··",
+             "й": "·−−−", "к": "−·−",
+             "л": "·−··", "м": "−−", "н": "−·", "о": "−−−", "п": "·−−·", "р": "·−·", "с": "···",
+             "т": "−", "у": "··−",
+             "ф": "", "х": "", "ц": "",
+             "ч": "	−−−·", "ш": "−−−−", "щ": "−−·−", "ъ": "−−·−−", "ы": "−·−−", "ь": "−··−",
+             "э": "··−··", "ю": "··−−", "я": "· −·−", "1": "−−··",
+             "2": "··−−−", "3": "···−−",
+             "4": "····−", "5": "·····", "6": "−····", "7": "−−···", "8": "−−−··", "9": "−−−−·",
+             "0": "−−−−−", "_": "_", # сивол используется в виде пробела
+             "!": "--..--", ",": ".-.-.-", ".": "......", "?": "..--.."}
+
+
+def encode_to_morse(text):
+    global MorseCode
+    arr = []
+    for i in text.lower().split():
+        for j in i:
+            arr.append("".join(MorseCode[j]))
+    return " ".join(arr)
+
+
+def main():
+    print(Fore.YELLOW + "                  Программа для перевода текста в код Морзе")
+    print(Fore.GREEN + "1 - перевести текст в код Морзе")
+    print(Fore.MAGENTA + "2 - информация о проекте")
+    print(Fore.RED + "3 - помощь")
+    print(Fore.BLACK + "4 - выход")
+    interface(int(input(Fore.WHITE + "введите цифру: ")))
+
+
+def interface(request):
+    if request == 1:
+        print(encode_to_morse(input(Fore.LIGHTYELLOW_EX +
+                                    "Введите предложение на русском, в качестве пробела используйте знак '_'")))
+        print(Fore.GREEN + "1 - вернутся в меню")
+        print(Fore.RED + "2 - выйти из программы")
+        b_to_menu = int(input(Fore.WHITE + "введите цифру: "))
+        if b_to_menu == 1:
+            main()
+        elif b_to_menu == 2:
+            quit()
+        else:
+            print(Fore.LIGHTRED_EX + "Ошибка, введите корректные данные")
+    elif request == 2:
+        print(Fore.CYAN + "Вы можете найти последнюю версию проекта и документацию на гитхаб")
+        link_gh = "https://github.com/RFKolor/GSK_project.git"
+        print(Fore.WHITE + link_gh.format(link="https://github.com/RFKolor/GSK_project.git", text="Ссылка на github"))
+
+main()

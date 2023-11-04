@@ -11,7 +11,7 @@ MorseCode = {"а": "·−", "б": "−···", "в": "·−−", "г": "−−·
              "э": "··−··", "ю": "··−−", "я": "· −·−", "1": "−−··",
              "2": "··−−−", "3": "···−−",
              "4": "····−", "5": "·····", "6": "−····", "7": "−−···", "8": "−−−··", "9": "−−−−·",
-             "0": "−−−−−", "_": "_", # сивол используется в виде пробела
+             "0": "−−−−−", "_": "_",# сивол используется в виде пробела
              "!": "--..--", ",": ".-.-.-", ".": "......", "?": "..--.."}
 
 
@@ -28,8 +28,7 @@ def main():
     print(Fore.YELLOW + "                  Программа для перевода текста в код Морзе")
     print(Fore.GREEN + "1 - перевести текст в код Морзе")
     print(Fore.MAGENTA + "2 - информация о проекте")
-    print(Fore.RED + "3 - помощь")
-    print(Fore.BLACK + "4 - выход")
+    print(Fore.RED + "3 - выход")
     interface(int(input(Fore.WHITE + "введите цифру: ")))
 
 
@@ -50,5 +49,7 @@ def interface(request):
         print(Fore.CYAN + "Вы можете найти последнюю версию проекта и документацию на гитхаб")
         link_gh = "https://github.com/RFKolor/GSK_project.git"
         print(Fore.WHITE + link_gh.format(link="https://github.com/RFKolor/GSK_project.git", text="Ссылка на github"))
+    elif request == 3:
+        quit()
 
 main()
